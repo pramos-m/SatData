@@ -1,0 +1,17 @@
+{
+  "name": "@terranode/types",
+  "version": "1.0.0",
+  "description": "the shared types for terranode apps",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --external node",
+    "dev": "tsup src/index.ts --format esm,cjs --dts --external node --watch"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  }
+}

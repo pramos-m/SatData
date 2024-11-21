@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: ./apps/web/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+
+  api:
+    container_name: api
+    build:
+      context: .
+      dockerfile: ./apps/api/Dockerfile
+    ports:
+      - "5500:5500"
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+# Most likely will have to add a few services here as well (database maybe, redis, etc)
+
+networks:
+  default:
+    external:
+      name: terranode_default
+
+volumes:
+  terranode_data:
+    external: true
+# possibly important a bit later
